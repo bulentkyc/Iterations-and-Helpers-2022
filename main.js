@@ -36,13 +36,87 @@ let myCar3 = {
 
 let myGarage = [myCar1, myCar2, myCar3];
 
-for (const car of myGarage) {
-    console.log(car.color);
-    //console.log(myGarage.brand);
-}
-
 console.log(myGarage[0].brand);
 console.log(myGarage[1].brand);
 console.log(myGarage[2].brand);
 
-console.log(myGarage);
+console.log(myGarage.brand);//undefined
+
+for (let i = 0; i < myGarage.length; i++) {
+    const car = myGarage[i];
+    console.log(car.power);
+}
+
+for (const car of myGarage) {
+    console.log(car.color);
+}
+
+/* myCar1 is not iterable
+for (const car of myCar1) {
+    console.log(car);
+}
+ */
+/* 
+for (const key in myCar1)
+['brand', 'color', 'engine', 'power']
+ */
+console.log('myCar1: ');
+console.log(myCar1);
+
+for (const key in myCar1) {
+    const element = myCar1[key];
+    console.log(element);
+}
+
+////////////////////////////////////////////////////////////////
+
+for (const car of myGarage) {
+    
+    for (const key in car) {
+        const element = car[key];
+        console.log(key, ':', element);
+    }
+
+}
+////////////////////////////////////////////////////////////////
+/*syntax:
+array.forEach(element => {
+    
+});
+*/
+/* console.log('forEach');
+let colors = myGarage.forEach((car, i, source) => {
+    console.log(i);
+    console.log(car.brand);
+    console.log(source);
+    return car.color
+});
+
+console.log(colors); */
+
+console.log('forEach');
+myGarage.forEach((car, i, source) => {
+    console.log(i);
+    console.log(car.brand);
+    console.log(source);
+});
+
+console.log(colors);
+
+////////////////////////////////////////////////////////////////
+/*syntax:
+let props = array.map(element => {
+    return elemet.prop;
+});
+*/
+console.log('map');
+let brands = myGarage.map((car, i, source) => {
+    console.log(i);
+    console.log(car.brand);
+    console.log(source);
+    return car.brand
+});
+
+console.log(brands);
+
+
